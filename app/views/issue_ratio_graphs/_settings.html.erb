@@ -1,0 +1,42 @@
+<table>
+  <tbody>
+    <tr>
+      <th>Closed issue status IDs</th>
+      <td>
+        Detected automatically by <code>is_closed</code> attribute.
+      </td>
+    </tr>
+    <tr>
+      <th>Resolved issue status IDs</th>
+      <td>
+        <%= select_tag("settings[resolved_ids]",
+                       options_from_collection_for_select(IssueStatus.all, :id, :name, Setting.plugin_redmine_irg["resolved_ids"]),
+                       { multiple: true, size: 10, include_hidden: false }) %>
+      </td>
+    </tr>
+    <tr>
+      <th>Graph height</th>
+      <td>
+        <%= text_field_tag("settings[graph_height]", Setting.plugin_redmine_irg["graph_height"]) %>
+      </td>
+    </tr>
+    <tr>
+      <th>Created issues series color</th>
+      <td>
+        <%= text_field_tag("settings[color_created]", Setting.plugin_redmine_irg["color_created"]) %>
+      </td>
+    </tr>
+    <tr>
+      <th>Resolved issues series color</th>
+      <td>
+        <%= text_field_tag("settings[color_resolved]", Setting.plugin_redmine_irg["color_resolved"]) %>
+      </td>
+    </tr>
+    <tr>
+      <th>Closed issues series color</th>
+      <td>
+        <%= text_field_tag("settings[color_closed]", Setting.plugin_redmine_irg["color_closed"]) %>
+      </td>
+    </tr>
+  </tbody>
+</table>

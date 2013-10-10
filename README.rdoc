@@ -1,0 +1,4 @@
+= Redmine Issue Ratio Graphs Plugin
+
+A plugin for Redmine that provides resolved/created and closed/created issue
+ratio graphs.
