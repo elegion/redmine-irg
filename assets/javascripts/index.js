@@ -3,7 +3,7 @@
   nv.addGraph(function() {
     var chart = nv.models.lineChart();
     var d3Chart = d3.select('#irg svg');
-    var projectId = document.location.pathname.match('/projects/(.*)/?.*')[1];
+    var dataUrl = jQuery(d3Chart[0][0]).parent().data('dataUrl');
 
     d3Chart.transition().duration(500);
     chart.xAxis
@@ -15,7 +15,7 @@
       });
     chart.xAxis.axisLabel('Date')
     chart.yAxis.axisLabel('Issues');
-    jQuery.get(d3Chart[0][0].parentNode.dataset.dataUrl, function(data) {
+    jQuery.get(dataUrl, function(data) {
       d3Chart.datum(data).call(chart);
     });
 
